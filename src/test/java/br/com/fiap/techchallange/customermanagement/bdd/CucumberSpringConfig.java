@@ -1,9 +1,11 @@
-package br.com.fiap.techchallenge.customermanagement.bdd;
+package br.com.fiap.techchallange.customermanagement.bdd;
 
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class CucumberSpringConfig {
 
     @Bean

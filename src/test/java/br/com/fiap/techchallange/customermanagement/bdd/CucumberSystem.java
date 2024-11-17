@@ -1,4 +1,4 @@
-package br.com.fiap.techchallenge.customermanagement.bdd;
+package br.com.fiap.techchallange.customermanagement.bdd;
 
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.junit.platform.suite.api.IncludeEngines;
