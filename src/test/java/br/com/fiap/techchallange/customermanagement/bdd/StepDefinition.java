@@ -4,7 +4,6 @@ import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.In
 import br.com.fiap.techchallange.customermanagement.util.CustomerUtil;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Quando;
 import io.cucumber.java.pt.Entao;
@@ -12,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
-import org.junit.jupiter.api.AfterAll;
 import org.springframework.test.context.ActiveProfiles;
 import static io.restassured.RestAssured.given;
 
