@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class RegisterTest {
+public class RegisterCustomerTest {
 
     MockMvc mockMvc;
 
@@ -66,7 +66,6 @@ public class RegisterTest {
         public void deveCadastrarCliente() throws Exception {
             // GIVEN
             InputDataCustomerDTO inputDataCustomerDTO = CustomerUtil.generateCustomer("12345678905", "Moisés Monte", "moises.moises@gmail.com");
-            OutputDataCustomerDTO outputDataCustomerDTO = new OutputDataCustomerDTO("12345678905", "Moisés Monte", "moises.moises@gmail.com");
 
             CustomerViewModel customerViewModel = new CustomerViewModel(
                     "12345678905",
