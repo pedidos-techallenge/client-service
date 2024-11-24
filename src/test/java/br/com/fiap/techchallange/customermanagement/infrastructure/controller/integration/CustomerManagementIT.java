@@ -1,6 +1,5 @@
 package br.com.fiap.techchallange.customermanagement.infrastructure.controller.integration;
 
-import br.com.fiap.techchallange.customermanagement.CustomerManagementApplicationTests;
 import br.com.fiap.techchallange.customermanagement.core.entity.Customer;
 import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.InputDataCustomerDTO;
 import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.OutputDataCustomerDTO;
