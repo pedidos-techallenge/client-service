@@ -24,6 +24,7 @@
 		</sonar.coverage.jacoco.xmlReportPaths>
 		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.organization>pedidos-techallenge</sonar.organization>
 	</properties>
 
 	<dependencies>
