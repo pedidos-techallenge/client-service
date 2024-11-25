@@ -43,60 +43,60 @@ public class ManagementCustomer  {
 
     @Operation(summary = "Registrar as informações do cliente.")
     @PostMapping("/")
-    public ResponseEntity<?> registerCustomer(@RequestBody ClientRequestDTO clientDeserializer) throws DataAccessException {
+    public ResponseEntity<Object> registerCustomer(@RequestBody ClientRequestDTO clientDeserializer) throws DataAccessException {
         try {
             this.registerCustomerController.invoke(clientDeserializer.cpf(), clientDeserializer.name(), clientDeserializer.email());
         } catch (DataAccessException e) {
-            return new ResponseEntity<>(new ErrorViewModel(3,"CPF já cadastrado na base de dados!"), HttpStatus.BAD_REQUEST);
+            ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorViewModel(3,"CPF já cadastrado na base de dados!"));
         } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(new ErrorViewModel(99, e.getMessage()), HttpStatus.NOT_FOUND);
+            ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorViewModel(99, e.getMessage()));
         }
-        return new ResponseEntity<>( "Cliente cadastrado com sucesso!", HttpStatus.OK);
+        return ResponseEntity.ok( "Cliente cadastrado com sucesso!");
     }
 
     @Operation(summary = "Busca as informações do cliente.")
     @GetMapping("/{cpf}")
-    public ResponseEntity<?> getCustomer(@PathVariable String cpf) throws EmptyResultDataAccessException {
+    public ResponseEntity<Object> getCustomer(@PathVariable String cpf) throws EmptyResultDataAccessException {
         try {
             CustomerViewModel response = customerPresenterJson.invoke(this.getController.invoke(cpf));
-            return new ResponseEntity<>(response, HttpStatus.OK);
+            return ResponseEntity.ok(response);
         } catch (EmptyResultDataAccessException e) {
-            return new ResponseEntity<>(new ErrorViewModel(4,"Cliente não encontrado na base de dados"), HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorViewModel(4,"Cliente não encontrado na base de dados"));
         }
     }
 
     @Operation(summary = "Atualiza as informações do cliente.")
     @PutMapping("/")
-    public ResponseEntity<?> changingCustomer(@RequestBody ClientRequestDTO clientDeserializer) throws DataAccessException {
+    public ResponseEntity<Object> changingCustomer(@RequestBody ClientRequestDTO clientDeserializer) throws DataAccessException {
         try {
             this.changingCustomerController.invoke(clientDeserializer.cpf(), clientDeserializer.name(), clientDeserializer.email());
         } catch (DataAccessException e) {
-            return new ResponseEntity<>(new ErrorViewModel(5,"Houve um problema na atualização das informações do cliente"), HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorViewModel(5,"Houve um problema na atualização das informações do cliente"));
         } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(new ErrorViewModel(99, e.getMessage()), HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorViewModel(99, e.getMessage()));
         }
-        return new ResponseEntity<>( "Cliente atualizado com sucesso!", HttpStatus.OK);
+        return ResponseEntity.ok( "Cliente atualizado com sucesso!");
     }
 
     @Operation(summary = "Remove as informações do cliente.!")
     @DeleteMapping("/{cpf}")
-    public ResponseEntity<?> removeCustomer(@PathVariable String cpf) throws EmptyResultDataAccessException {
+    public ResponseEntity<Object> removeCustomer(@PathVariable String cpf) throws EmptyResultDataAccessException {
         try {
             this.removeCustomerController.invoke(cpf);
-            return new ResponseEntity<>("Dados do cliente removidos com sucesso!", HttpStatus.OK);
+            return ResponseEntity.ok("Dados do cliente removidos com sucesso!");
         } catch (EmptyResultDataAccessException e) {
-            return new ResponseEntity<>(new ErrorViewModel(6,"Houve um problema na remoção das informações do cliente."), HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorViewModel(6,"Houve um problema na remoção das informações do cliente."));
         }
     }
 
     @Operation(summary = "Remove todos os clientes da base de dados.")
     @DeleteMapping("/")
-    public ResponseEntity<?> removeAllCustomers() throws EmptyResultDataAccessException {
+    public ResponseEntity<Object> removeAllCustomers() throws EmptyResultDataAccessException {
         try {
             this.removeAllCustomersController.invoke();
-            return new ResponseEntity<>("Todos os clientes foram removidos com sucesso!", HttpStatus.OK);
+            return ResponseEntity.ok("Todos os clientes foram removidos com sucesso!");
         } catch (EmptyResultDataAccessException e) {
-            return new ResponseEntity<>(new ErrorViewModel(6,"Houve um problema na remoção das informações dos clientes."), HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorViewModel(6,"Houve um problema na remoção das informações dos clientes."));
         }
     }
 
