@@ -1,12 +1,9 @@
 package br.com.fiap.techchallange.customermanagement.infrastructure.controller.unittesting;
 
 import br.com.fiap.techchallange.customermanagement.adapters.controllers.managementcustomer.*;
-import br.com.fiap.techchallange.customermanagement.adapters.presenters.viewmodel.CustomerViewModel;
-import br.com.fiap.techchallange.customermanagement.core.entity.Customer;
 import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.InputDataCustomerDTO;
 import br.com.fiap.techchallange.customermanagement.core.usecase.outputboundary.presenters.managementcustomer.ICustomerPresenter;
 import br.com.fiap.techchallange.customermanagement.infrastructure.api.ManagementCustomer;
-import br.com.fiap.techchallange.customermanagement.infrastructure.bd.MySQLCustomerRepository;
 import br.com.fiap.techchallange.customermanagement.util.CustomerUtil;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,19 +11,15 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 public class UpdateCustomerTest {
-
-
     MockMvc mockMvc;
 
     AutoCloseable openMocks;

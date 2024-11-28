@@ -10,7 +10,7 @@ public class CustomerControllerConfig {
 
     @Bean
     public IGetCustomerController getCustomerController(IGetCustomerUseCase getCustomerUserCase){
-        return new GetCustomerContoller(getCustomerUserCase);
+        return new GetCustomerController(getCustomerUserCase);
     }
 
     @Bean

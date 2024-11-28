@@ -9,25 +9,26 @@ public class Name {
         this.checkNameValue(name);
     }
 
+    public String getNameValue() {
+        return this.nameValue;
+    }
+
     public void checkNameValue(String name) throws InputMismatchException {
-//        if (name.matches(".*\\d.*")) {
-//            name = null;
-//        }
 
-        for (char c : name.toCharArray()) {
-            if (Character.isDigit(c) || ((!Character.isLetter(c) && c != ' '))){
-                name = null;
-            }
-        }
-
-        if (name == null) {
+        boolean hasSpecialCharacter = isSpecialCharacter(name);
+        if (name.matches(".*\\d.*") || hasSpecialCharacter || name==null) {
             throw new IllegalArgumentException("Nome é inválido!");
         } else {
             this.nameValue = name;
         }
     }
 
-    public String getNameValue() {
-        return this.nameValue;
+    public boolean isSpecialCharacter(String name) {
+        for (char c : name.toCharArray()) {
+            if (Character.isDigit(c) || ((!Character.isLetter(c) && c != ' '))){
+                return true;
+            }
+        }
+        return false;
     }
 }
