@@ -212,12 +212,13 @@
 							</rules>
 							<haltOnFailure>true</haltOnFailure>
 							<excludes>
-								<exclude>**/config/**/*</exclude>
-								<exclude>**/configuration/**/*</exclude>
-								<exclude>**/infrastructure/**/*</exclude>
-								<exclude>**/adapters/**/*</exclude>
-								<exclude>**/dto/**/*</exclude>
-								<exclude>**/Application.*</exclude>
+<!--								<exclude>**/config/**/*</exclude>-->
+<!--								<exclude>**/configuration/**/*</exclude>-->
+<!--								<exclude>**/infrastructure/**/*</exclude>-->
+<!--								<exclude>**/adapters/**/*</exclude>-->
+<!--								<exclude>**/dto/**/*</exclude>-->
+<!--								<exclude>**/managementcustomer/*</exclude>-->
+								<exclude>**/MainApplication.*</exclude>
 							</excludes>
 						</configuration>
 					</execution>

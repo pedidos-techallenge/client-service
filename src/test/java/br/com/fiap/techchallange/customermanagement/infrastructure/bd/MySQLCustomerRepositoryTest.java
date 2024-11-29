@@ -69,4 +69,70 @@ public class MySQLCustomerRepositoryTest {
         assertEquals(expectedCustomer.getName(), result.getName());
         assertEquals(expectedCustomer.getEmail(), result.getEmail());
     }
+
+    @Test
+    void shouldChangeCustomerWithCorrectParameters() {
+        // Arrange
+        Customer customer = new Customer("12345678900", "José Arlindo", "jose.arlindo@email.com");
+
+        // Act
+        repository.changing(customer);
+
+        // Assert
+        ArgumentCaptor<String> sqlCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<MapSqlParameterSource> paramsCaptor = ArgumentCaptor.forClass(MapSqlParameterSource.class);
+
+        verify(jdbcTemplate, times(1)).update(sqlCaptor.capture(), paramsCaptor.capture());
+
+        // Verifica a query SQL
+        String sql = "UPDATE dbtechchallange.customer set name= :name, email= :email where cpf = :cpf";
+
+        // Verifica os parâmetros
+        MapSqlParameterSource capturedParams = paramsCaptor.getValue();
+        assertEquals(sql, sqlCaptor.getValue());
+        assertEquals("12345678900", capturedParams.getValue("cpf"));
+        assertEquals("José Arlindo", capturedParams.getValue("name"));
+        assertEquals("jose.arlindo@email.com", capturedParams.getValue("email"));
+    }
+
+    @Test
+    void shouldRemoveCustomerFromDatabase() {
+        // Arrange
+        Customer customer = new Customer("12345678900", "José Arlindo", "jose.arlindo@email.com");
+
+        // Act
+        repository.remove(customer.getCPF());
+
+        // Assert
+        ArgumentCaptor<String> sqlCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<MapSqlParameterSource> paramsCaptor = ArgumentCaptor.forClass(MapSqlParameterSource.class);
+
+        verify(jdbcTemplate, times(1)).update(sqlCaptor.capture(), paramsCaptor.capture());
+
+        // Verifica a query SQL
+        String sql = "DELETE from dbtechchallange.customer where cpf = :cpf";
+
+        // Verifica os parâmetros
+        MapSqlParameterSource capturedParams = paramsCaptor.getValue();
+        assertEquals(sql, sqlCaptor.getValue());
+        assertEquals("12345678900", capturedParams.getValue("cpf"));
+    }
+
+    @Test
+    void shouldRemoveAllCustomersFromDatabase() {
+        // Act
+        repository.removeAll();
+
+        // Assert
+        ArgumentCaptor<String> sqlCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<MapSqlParameterSource> paramsCaptor = ArgumentCaptor.forClass(MapSqlParameterSource.class);
+
+        verify(jdbcTemplate, times(1)).update(sqlCaptor.capture(), paramsCaptor.capture());
+
+        // Verifica a query SQL
+        String sql = "DELETE from dbtechchallange.customer";
+
+        // Verifica os parâmetros
+        assertEquals(sql, sqlCaptor.getValue());
+    }
 }

@@ -36,7 +36,6 @@ public class GetCustomerControllerTest {
         when(getCustomerUseCase.get(eq(customerDTO))).thenReturn(expectedCustomer);
         verify(getCustomerUseCase, times(1)).get(customerDTO);
 
-        //InputDataCustomerDTO customerDTO = captor.getValue();
         assertEquals(cpf, customerDTO.cpf());
     }
 }

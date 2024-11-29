@@ -126,4 +126,17 @@ public class CustomerManagementIT {
                 .body("name", equalTo(outputDataCustomerDTO.name()))
                 .body("email", equalTo(outputDataCustomerDTO.email()));
     }
+
+    @Test
+    public void deveRemoverTodosOsClientes(){
+
+        given()
+                .header("Content-Type", "application/json")
+                .when()
+                .delete("/v1/customers/")
+                .then()
+                .statusCode(HttpStatus.OK.value())
+                .contentType("text/plain")
+                .body(equalTo("Todos os clientes foram removidos com sucesso!"));
+    }
 }
