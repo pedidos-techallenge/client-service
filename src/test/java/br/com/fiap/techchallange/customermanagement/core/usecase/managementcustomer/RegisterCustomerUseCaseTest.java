@@ -13,6 +13,8 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -53,5 +55,18 @@ public class RegisterCustomerUseCaseTest {
         assertEquals(cpf, capturedCustomer.getCPF());
         assertEquals(name, capturedCustomer.getName());
         assertEquals(email, capturedCustomer.getEmail());
+    }
+
+    @Test
+    void shouldNotRegisterCustomerWithNullCPF() {
+        IllegalArgumentException exception = new IllegalArgumentException();
+        try {
+            Customer customer = new Customer(null, "José Arlindo", "jose.arlindo@email.com");
+            repository.register(customer);
+        } catch (IllegalArgumentException except) {
+            exception = except;
+        }
+
+        assertEquals("CPF é inválido!", exception.getMessage());
     }
 }

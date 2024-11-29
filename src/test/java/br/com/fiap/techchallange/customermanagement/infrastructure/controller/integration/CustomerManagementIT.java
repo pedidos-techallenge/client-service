@@ -41,13 +41,15 @@ public class CustomerManagementIT {
     @Autowired
     MySQLCustomerRepository customerRepository;
 
+    List<Customer> customers;
+
     @BeforeEach
     public void setup() {
         RestAssured.port = port;
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 
         // Populate the database
-        List<Customer> customers = new ArrayList<>();
+        customers = new ArrayList<>();
         Customer customer1 = new Customer("12345678900", "José Arlindo", "jose@arlindo.com");
         Customer customer2 = new Customer("12345678901", "Maria Joana", "maria@joana.com");
         Customer customer3 = new Customer("12345678902", "João Francisco", "joao@francisco.com");
