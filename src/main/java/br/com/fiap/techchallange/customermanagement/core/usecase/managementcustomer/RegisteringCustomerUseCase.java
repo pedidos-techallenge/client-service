@@ -16,5 +16,4 @@ public class RegisteringCustomerUseCase implements IRegisteringCustomerUseCase {
     public void invoke(InputDataCustomerDTO customerDTO) throws IllegalArgumentException {
         this.repository.register(new Customer(customerDTO.cpf(), customerDTO.name(), customerDTO.email()));
     }
-
 }

@@ -28,7 +28,7 @@ public class RemoveAllCustomersUseCaseTest {
 
     @Test
     void shouldRemoveAllCustomers() {
-        iRemoveAllCustomersUseCase.invoke();
-        verify(iRemoveAllCustomersUseCase, times(1)).invoke();
+        removeAllCustomersUseCase.invoke();
+        verify(repository, times(1)).removeAll();
     }
 }

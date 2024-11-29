@@ -37,14 +37,14 @@ public class RemovalOfCustomerUseCaseTest {
         InputDataCustomerDTO inputDataCustomerDTO = new InputDataCustomerDTO(cpf, name, email);
 
         // Act
-        iRemovalOfCustomerUseCase.invoke(inputDataCustomerDTO);
+        removalOfCustomerUseCase.invoke(inputDataCustomerDTO);
 
         // Assert
-        ArgumentCaptor<InputDataCustomerDTO> captor = ArgumentCaptor.forClass(InputDataCustomerDTO.class);
-        verify(iRemovalOfCustomerUseCase, times(1)).invoke(captor.capture());
+        ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+        verify(repository, times(1)).remove(captor.capture());
 
-        InputDataCustomerDTO capturedDTO = captor.getValue();
-        assertEquals(cpf, capturedDTO.cpf());
+        String cpfCaptured = captor.getValue();
+        assertEquals(cpf, cpfCaptured);
     }
 
 }
