@@ -4,11 +4,11 @@ import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.In
 import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.OutputDataCustomerDTO;
 import br.com.fiap.techchallange.customermanagement.core.usecase.inputboundary.managementcustomer.IGetCustomerUseCase;
 
-public class GetCustomerContoller implements IGetCustomerController {
+public class GetCustomerController implements IGetCustomerController {
 
     IGetCustomerUseCase getCustomerUserCase;
 
-    public GetCustomerContoller(IGetCustomerUseCase queryUserCase){
+    public GetCustomerController(IGetCustomerUseCase queryUserCase){
         this.getCustomerUserCase = queryUserCase;
     }
 

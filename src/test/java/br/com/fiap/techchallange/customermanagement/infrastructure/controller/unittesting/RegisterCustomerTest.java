@@ -3,7 +3,6 @@ package br.com.fiap.techchallange.customermanagement.infrastructure.controller.u
 import br.com.fiap.techchallange.customermanagement.adapters.controllers.managementcustomer.*;
 import br.com.fiap.techchallange.customermanagement.adapters.presenters.viewmodel.CustomerViewModel;
 import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.InputDataCustomerDTO;
-import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.OutputDataCustomerDTO;
 import br.com.fiap.techchallange.customermanagement.core.usecase.outputboundary.presenters.managementcustomer.ICustomerPresenter;
 import br.com.fiap.techchallange.customermanagement.infrastructure.api.ManagementCustomer;
 import br.com.fiap.techchallange.customermanagement.util.CustomerUtil;
@@ -16,6 +15,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

@@ -7,6 +7,7 @@ public class FullName implements Serializable {
     private String fullName;
 
     public FullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getFullName() {

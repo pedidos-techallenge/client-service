@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
@@ -34,13 +34,15 @@ public class CustomerManagementIT {
     @Autowired
     MySQLCustomerRepository customerRepository;
 
+    List<Customer> customers;
+
     @BeforeEach
     public void setup() {
         RestAssured.port = port;
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 
         // Populate the database
-        List<Customer> customers = new ArrayList<>();
+        customers = new ArrayList<>();
         Customer customer1 = new Customer("12345678900", "José Arlindo", "jose@arlindo.com");
         Customer customer2 = new Customer("12345678901", "Maria Joana", "maria@joana.com");
         Customer customer3 = new Customer("12345678902", "João Francisco", "joao@francisco.com");
@@ -79,6 +81,21 @@ public class CustomerManagementIT {
                 .contentType("text/plain")
                 .body(equalTo("Cliente cadastrado com sucesso!"));
         }
+    }
+
+    @Test
+    public void naoDeveEncontrarCliente() {
+        InputDataCustomerDTO inputDataCustomerDTO = CustomerUtil.generateCustomer("aaa1111222", "Moisés Monte", "moises.moises@gmail.com");
+        String expectedResponse = "{\"code\":4,\"message\":\"Cliente não encontrado na base de dados\"}";
+
+        given()
+                .header("Content-Type", "application/json")
+                .when()
+                .get("/v1/customers/" + inputDataCustomerDTO.cpf())
+                .then()
+                .statusCode(HttpStatus.NOT_FOUND.value())
+                .contentType("application/json")
+                .body(equalTo(expectedResponse));
     }
 
     @Test
@@ -125,5 +142,18 @@ public class CustomerManagementIT {
                 .body("cpf", equalTo(outputDataCustomerDTO.cpf())) // Validação do JSON retornado
                 .body("name", equalTo(outputDataCustomerDTO.name()))
                 .body("email", equalTo(outputDataCustomerDTO.email()));
+    }
+
+    @Test
+    public void deveRemoverTodosOsClientes(){
+
+        given()
+                .header("Content-Type", "application/json")
+                .when()
+                .delete("/v1/customers/")
+                .then()
+                .statusCode(HttpStatus.OK.value())
+                .contentType("text/plain")
+                .body(equalTo("Todos os clientes foram removidos com sucesso!"));
     }
 }
