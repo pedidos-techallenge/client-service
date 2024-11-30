@@ -16,7 +16,7 @@ public class Name {
     public void checkNameValue(String name) throws InputMismatchException {
 
         boolean hasSpecialCharacter = isSpecialCharacter(name);
-        if (name.matches(".*\\d.*") || hasSpecialCharacter) {
+        if ((name.chars().anyMatch(Character::isDigit)) || hasSpecialCharacter) {
             throw new IllegalArgumentException("Nome é inválido!");
         } else {
             this.nameValue = name;

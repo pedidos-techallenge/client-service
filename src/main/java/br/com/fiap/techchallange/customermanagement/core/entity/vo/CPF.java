@@ -9,7 +9,7 @@ public class CPF {
 
     public void checkCPFValue(String cpfValue) throws IllegalArgumentException{
         if (cpfValue == null || cpfValue.length() != 11 || !cpfValue.matches("\\d{11}") ||
-                cpfValue.matches(".*[a-z].*") ||
+            (cpfValue.chars().anyMatch(Character::isLowerCase)) ||
                 cpfValue.matches("(\\d)\\1{10}")) { // Detecta todos os números iguais
             throw new IllegalArgumentException("CPF é inválido!");
         }
