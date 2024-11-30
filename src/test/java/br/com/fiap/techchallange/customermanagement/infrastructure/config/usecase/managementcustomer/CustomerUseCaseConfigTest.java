@@ -1,7 +1,6 @@
 package br.com.fiap.techchallange.customermanagement.infrastructure.config.usecase.managementcustomer;
 
 import br.com.fiap.techchallange.customermanagement.adapters.gateways.repository.ICustomerRepository;
-import br.com.fiap.techchallange.customermanagement.infrastructure.config.controller.managementcustomer.CustomerControllerConfig;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 

@@ -1,6 +1,5 @@
 package br.com.fiap.techchallange.customermanagement.core.entity;
 
-import br.com.fiap.techchallange.customermanagement.core.entity.vo.Name;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

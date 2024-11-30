@@ -1,13 +1,10 @@
 package br.com.fiap.techchallange.customermanagement.infrastructure.config.controller.managementcustomer;
 
 import br.com.fiap.techchallange.customermanagement.core.usecase.inputboundary.managementcustomer.*;
-import br.com.fiap.techchallange.customermanagement.infrastructure.config.controller.managementcustomer.CustomerControllerConfig;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CustomerControllerConfigTest {
 

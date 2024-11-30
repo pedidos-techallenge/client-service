@@ -1,6 +1,5 @@
 package br.com.fiap.techchallange.customermanagement.core.entity.vo;
 
-import org.checkerframework.checker.units.qual.N;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

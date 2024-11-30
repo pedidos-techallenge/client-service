@@ -1,23 +1,16 @@
 package br.com.fiap.techchallange.customermanagement.core.usecase.managementcustomer;
+
 import br.com.fiap.techchallange.customermanagement.adapters.gateways.repository.ICustomerRepository;
-import br.com.fiap.techchallange.customermanagement.adapters.presenters.managementcustomer.CustomerPresenterJson;
-import br.com.fiap.techchallange.customermanagement.adapters.presenters.viewmodel.CustomerViewModel;
 import br.com.fiap.techchallange.customermanagement.core.entity.Customer;
 import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.InputDataCustomerDTO;
 import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.OutputDataCustomerDTO;
-import br.com.fiap.techchallange.customermanagement.core.usecase.inputboundary.managementcustomer.IChangingCustomerUseCase;
-import br.com.fiap.techchallange.customermanagement.core.usecase.inputboundary.managementcustomer.IGetCustomerUseCase;
-import io.cucumber.java.sl.In;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
-import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
 public class GetCustomerUseCaseTest {
 

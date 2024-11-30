@@ -1,6 +1,7 @@
 package br.com.fiap.techchallange.customermanagement.infrastructure.bd;
-import br.com.fiap.techchallange.customermanagement.core.entity.Customer;
+
 import br.com.fiap.techchallange.customermanagement.adapters.gateways.repository.ICustomerRepository;
+import br.com.fiap.techchallange.customermanagement.core.entity.Customer;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -9,7 +10,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
-
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

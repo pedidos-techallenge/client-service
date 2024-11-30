@@ -3,9 +3,8 @@ package br.com.fiap.techchallange.customermanagement.infrastructure.api;
 import br.com.fiap.techchallange.customermanagement.adapters.controllers.managementcustomer.*;
 import br.com.fiap.techchallange.customermanagement.adapters.presenters.viewmodel.CustomerViewModel;
 import br.com.fiap.techchallange.customermanagement.adapters.presenters.viewmodel.ErrorViewModel;
-import br.com.fiap.techchallange.customermanagement.infrastructure.dto.ClientRequestDTO;
-
 import br.com.fiap.techchallange.customermanagement.core.usecase.outputboundary.presenters.managementcustomer.ICustomerPresenter;
+import br.com.fiap.techchallange.customermanagement.infrastructure.dto.ClientRequestDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.dao.DataAccessException;

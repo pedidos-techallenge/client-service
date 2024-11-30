@@ -1,8 +1,8 @@
 package br.com.fiap.techchallange.customermanagement.core.usecase.managementcustomer;
 
+import br.com.fiap.techchallange.customermanagement.adapters.gateways.repository.ICustomerRepository;
 import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.InputDataCustomerDTO;
 import br.com.fiap.techchallange.customermanagement.core.usecase.inputboundary.managementcustomer.IRemovalOfCustomerUseCase;
-import br.com.fiap.techchallange.customermanagement.adapters.gateways.repository.ICustomerRepository;
 
 public class RemovalOfCustomerUseCase implements IRemovalOfCustomerUseCase {
 

@@ -1,26 +1,19 @@
 package br.com.fiap.techchallange.customermanagement.infrastructure.controller.integration;
 
-import br.com.fiap.techchallange.customermanagement.adapters.controllers.managementcustomer.*;
-import br.com.fiap.techchallange.customermanagement.adapters.presenters.viewmodel.ErrorViewModel;
 import br.com.fiap.techchallange.customermanagement.core.entity.Customer;
 import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.InputDataCustomerDTO;
 import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.OutputDataCustomerDTO;
-import br.com.fiap.techchallange.customermanagement.core.usecase.outputboundary.presenters.managementcustomer.ICustomerPresenter;
-import br.com.fiap.techchallange.customermanagement.infrastructure.api.ManagementCustomer;
 import br.com.fiap.techchallange.customermanagement.infrastructure.bd.MySQLCustomerRepository;
 import br.com.fiap.techchallange.customermanagement.util.CustomerUtil;
-import io.cucumber.java.zh_cn.那么;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
-import org.springframework.jmx.export.metadata.ManagedNotification;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 
@@ -28,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")

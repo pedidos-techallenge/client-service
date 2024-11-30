@@ -5,14 +5,14 @@ import br.com.fiap.techchallange.customermanagement.util.CustomerUtil;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
-import io.cucumber.java.pt.Quando;
 import io.cucumber.java.pt.Entao;
-import static org.junit.jupiter.api.Assertions.*;
-
+import io.cucumber.java.pt.Quando;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import org.springframework.test.context.ActiveProfiles;
+
 import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ActiveProfiles("test")
 public class StepDefinition {

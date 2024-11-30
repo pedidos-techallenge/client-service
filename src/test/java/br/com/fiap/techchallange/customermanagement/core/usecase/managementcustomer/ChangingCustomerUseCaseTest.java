@@ -1,6 +1,5 @@
 package br.com.fiap.techchallange.customermanagement.core.usecase.managementcustomer;
 
-import br.com.fiap.techchallange.customermanagement.adapters.controllers.managementcustomer.ChangingCustomerController;
 import br.com.fiap.techchallange.customermanagement.adapters.gateways.repository.ICustomerRepository;
 import br.com.fiap.techchallange.customermanagement.core.entity.Customer;
 import br.com.fiap.techchallange.customermanagement.core.usecase.dto.customer.InputDataCustomerDTO;
@@ -11,9 +10,9 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 public class ChangingCustomerUseCaseTest {
     @Mock
