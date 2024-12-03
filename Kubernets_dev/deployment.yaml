@@ -19,31 +19,32 @@ spec:
           image: indigrinada/customer-service:latest
           env:
             - name: SPRING_PROFILE
-              value: placeholder
+              value: prd
             - name: MYSQL_HOST
-              value: ""
+              value: mysql
             - name: MYSQL_PORT
-              value: ""
+              value: "3306"
             - name: MYSQL_DATABSE
-              value: ""
+              value: dbtechchallenge
             - name: MYSQL_USER
-              value: ""
+              value: turmafiap
             - name: MYSQL_PASSWORD
-              value: ""
+              value: Password123
+            - name: AWS_SQS_URL
+              value: AWS_SQS_URL
+            - name: AWS_REGION
+              value: AWS_REGION
           ports:
             - containerPort: 8080
           resources:
             limits:
-              memory: "500Mi"
-              cpu: "500m"
+              memory: "200Mi"
+              cpu: "200m"
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: customer-service-lb
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
-    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
 spec:
   selector:
     app: customer
