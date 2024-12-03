@@ -30,15 +30,14 @@ jobs:
               --db-instance-identifier techchallenge-customers-service \
               --query 'DBInstances[0].Endpoint.Address' \
               --output text)
-          export AWS_SQS_URL=$(aws sqs get-queue-url --queue-name customer-main --region=us-east-1 --output text)
-          kubectl set env deployment/customers-deployment \
+
+          kubectl set env deployment/customer-deployment \
               SPRING_PROFILE=prd \
               MYSQL_HOST=$MYSQL_HOST \
               MYSQL_PORT=3306 \
-              MYSQL_DATABASE=customers \
+              MYSQL_DATABASE=dbtechchallange \
               MYSQL_USER=$MYSQL_USERNAME \
               MYSQL_PASSWORD=$MYSQL_PASSWORD \
-              AWS_SQS_URL=$AWS_SQS_URL \
               AWS_REGION=$AWS_REGION \
               AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
               AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \

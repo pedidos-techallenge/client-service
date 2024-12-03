@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: customer
-          image: jubzzz/customer-service:latest
+          image: indigrinada/customer-service:latest
           env:
             - name: SPRING_PROFILE
               value: placeholder
